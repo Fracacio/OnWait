@@ -1,8 +1,12 @@
 package br.com.allyson.OnWait.principal;
 
+import br.com.allyson.OnWait.service.TicketService;
+
 import java.util.Scanner;
 
 public class Principal {
+    private TicketService ticketService = new TicketService();
+
     private Scanner scanner = new Scanner(System.in);
 
     public void exibeMenu(){
@@ -19,6 +23,8 @@ public class Principal {
                 2 - Aged (60+) or disabled
                 3 - Elderly (80+)
                 """);
-        int preferencial = scanner.nextInt();
+        int preferential = scanner.nextInt();
+
+        ticketService.generateCode(type,preferential);
     }
 }
